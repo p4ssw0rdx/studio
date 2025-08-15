@@ -29,7 +29,7 @@ export default function AboutPage() {
             <p className="text-primary font-semibold">Quem Somos</p>
             <h1 className="font-headline text-4xl md:text-5xl font-bold mt-2">Nossa Paixão é Construir</h1>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-              Fundada com o objetivo de revolucionar a engenharia civil, a JVG Engenharia combina técnica, criatividade e gestão para entregar projetos que superam expectativas.
+              Fundada com o objetivo de revolucionar a engenharia civil e a arquitetura, a JVG Engenharia combina técnica, criatividade e gestão para entregar projetos que superam expectativas.
             </p>
           </div>
         </div>

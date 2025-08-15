@@ -27,7 +27,7 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Building2 className="h-6 w-6 text-primary" />
-          <span className="font-bold inline-block font-headline">Engenharia Inovadora</span>
+          <span className="font-bold inline-block font-headline">JVG Engenharia</span>
         </Link>
         <nav className="hidden md:flex gap-6 text-sm font-medium">
           {navItems.map((item) => (
@@ -54,7 +54,7 @@ export function SiteHeader() {
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6" onClick={() => setIsMobileMenuOpen(false)}>
                 <Building2 className="h-6 w-6 text-primary" />
-                <span className="font-bold">Engenharia Inovadora</span>
+                <span className="font-bold">JVG Engenharia</span>
               </Link>
               <nav className="flex flex-col gap-4">
                 {navItems.map((item) => (

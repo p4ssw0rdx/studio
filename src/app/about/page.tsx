@@ -5,29 +5,19 @@ import Image from "next/image";
 
 const teamMembers = [
   {
-    name: "João Silva",
-    role: "Engenheiro Civil, CEO",
-    avatar: "https://placehold.co/100x100.png",
+    name: "Vinicius Duarte",
+    role: "Engenheiro Civil e Ambiental",
+    avatar: "/images/0.jpeg",
+    bio: "Tenho 37 anos e sou engenheiro civil e ambiental, com pós-graduação em Estruturas de Concreto Armado e Segurança do Trabalho. Minha trajetória na engenharia começou em 2008, quando iniciei meus trabalhos com um escritório em Pratápolis. Desde então, tenho me aprofundado cada vez mais na área de estruturas de concreto, unindo teoria e prática para entregar soluções eficientes, seguras e econômicas para o cliente. Atualmente, desenvolvo projetos arquitetônicos, projetos estruturais e projetos complementares , incluindo detalhamentos como planta de formas, vigas, pilares e lajes, além de oferecer consultorias especializadas em engenharia estrutural. 🏗️🏢",
     hint: "male portrait"
   },
   {
-    name: "Maria Oliveira",
-    role: "Arquiteta, Diretora de Projetos",
-    avatar: "https://placehold.co/100x100.png",
-    hint: "female portrait"
-  },
-  {
-    name: "Carlos Pereira",
-    role: "Engenheiro Elétrico, Sócio",
-    avatar: "https://placehold.co/100x100.png",
-    hint: "man portrait"
-  },
-  {
-    name: "Ana Costa",
-    role: "Gerente de Obras",
-    avatar: "https://placehold.co/100x100.png",
-    hint: "woman portrait"
-  },
+    name: "Gabriel Vilela",
+    role: "Engenheiro Civil e Pós-graduado em Arquitetura",
+    avatar: "/images/1.jpeg",
+    bio: "Tenho 27 anos, sou engenheiro civil e pós-graduado em Arquitetura e Urbanismo, e minha paixão por projetos surgiu durante meus estágios na área. Desde então, venho me especializando em Arquitetura e Interiores, sempre buscando aprimoramento por meio de cursos e experiências práticas no dia a dia. Atualmente, desenvolvo projetos arquitetônicos, projetos de interiores, detalhamento e projeto técnico, Renderizações de imagens e consultorias para transformar ideias em realidade! 🏡 📿",
+    hint: "male portrait"
+  }
 ];
 
 export default function AboutPage() {
@@ -39,7 +29,7 @@ export default function AboutPage() {
             <p className="text-primary font-semibold">Quem Somos</p>
             <h1 className="font-headline text-4xl md:text-5xl font-bold mt-2">Nossa Paixão é Construir</h1>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-              Fundada com o objetivo de revolucionar a engenharia civil, a Engenharia Inovadora combina técnica, criatividade e gestão para entregar projetos que superam expectativas.
+              Fundada com o objetivo de revolucionar a engenharia civil, a JVG Engenharia combina técnica, criatividade e gestão para entregar projetos que superam expectativas.
             </p>
           </div>
         </div>
@@ -48,7 +38,7 @@ export default function AboutPage() {
       <section className="pb-16 md:pb-24">
          <div className="container mx-auto px-4">
             <div className="relative rounded-lg overflow-hidden shadow-2xl">
-                <Image src="https://placehold.co/1200x500.png" width={1200} height={500} alt="Escritório da Engenharia Inovadora" className="w-full h-full object-cover" data-ai-hint="modern office interior" />
+                <Image src="https://placehold.co/1200x500.png" width={1200} height={500} alt="Escritório da JVG Engenharia" className="w-full h-full object-cover" data-ai-hint="modern office interior" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-8 md:p-12 text-white">
                     <h2 className="font-headline text-3xl md:text-4xl font-bold">Uma Década de Excelência</h2>
@@ -100,19 +90,22 @@ export default function AboutPage() {
               Profissionais experientes e apaixonados, prontos para transformar seus desafios em sucesso.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {teamMembers.map((member) => (
-              <Card key={member.name} className="text-center">
-                <CardHeader>
-                  <Avatar className="h-24 w-24 mx-auto mb-4">
-                    <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.hint} />
+              <Card key={member.name} className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left">
+                <div className="p-6 shrink-0">
+                  <Avatar className="h-32 w-32 mx-auto">
+                    <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.hint} className="object-cover" />
                     <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                   </Avatar>
-                  <CardTitle className="font-headline text-xl">{member.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-primary font-medium">{member.role}</p>
-                </CardContent>
+                </div>
+                <div className="p-6">
+                  <CardTitle className="font-headline text-2xl">{member.name}</CardTitle>
+                  <p className="text-primary font-medium mt-1">{member.role}</p>
+                  <CardContent className="p-0 mt-4">
+                    <p className="text-muted-foreground text-sm">{member.bio}</p>
+                  </CardContent>
+                </div>
               </Card>
             ))}
           </div>

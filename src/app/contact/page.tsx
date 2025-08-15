@@ -167,7 +167,7 @@ export default function ContactPage() {
                      <div className="p-3 bg-primary/10 rounded-full mt-1"><Mail className="h-6 w-6 text-primary"/></div>
                      <div>
                        <h4 className="font-semibold text-foreground">Email</h4>
-                       <p>contato@engeninova.com.br</p>
+                       <p>contato@jvgengenharia.com.br</p>
                      </div>
                    </div>
                 </div>

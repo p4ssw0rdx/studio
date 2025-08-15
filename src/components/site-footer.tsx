@@ -11,7 +11,7 @@ export function SiteFooter() {
           <div className="flex flex-col">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Building2 className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold font-headline">Engenharia Inovadora</span>
+              <span className="text-xl font-bold font-headline">JVG Engenharia</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Construindo o futuro com precisão, inovação e excelência em engenharia.
@@ -50,7 +50,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Engenharia Inovadora. Todos os direitos reservados.</p>
+          <p>&copy; {currentYear} JVG Engenharia. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

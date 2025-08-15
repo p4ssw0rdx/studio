@@ -127,7 +127,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
            <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
              <div>
-                <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground">Engenharia Inovadora</h2>
+                <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground">JVG Engenharia | Arquitetura & Interiores</h2>
                 <p className="mt-4 text-lg text-muted-foreground">
                   Com uma década de experiência e um portfólio de sucesso, somos referência em soluções de engenharia. Nossa missão é transformar desafios em realidade, com foco na sustentabilidade, segurança e na satisfação total de nossos clientes.
                 </p>

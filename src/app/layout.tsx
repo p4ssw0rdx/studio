@@ -6,7 +6,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Engenharia Inovadora',
+  title: 'JVG Engenharia | Arquitetura & Interiores',
   description: 'Excelência e inovação em cada empreendimento.',
 };
 

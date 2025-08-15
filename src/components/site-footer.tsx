@@ -45,7 +45,7 @@ export function SiteFooter() {
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter /></Link>
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Facebook /></Link>
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin /></Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram /></Link>
+              <Link href="https://www.instagram.com/jvg.engenharia" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram /></Link>
             </div>
           </div>
         </div>

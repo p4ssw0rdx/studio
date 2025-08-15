@@ -1,25 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, DraftingCompass, Wrench } from "lucide-react";
+import { Building2, DraftingCompass, Wrench, Home as HomeIcon, Ruler, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   const services = [
+    {
+      icon: <DraftingCompass className="h-10 w-10 text-primary" />,
+      title: "Projetos Arquitetônicos",
+      description: "Criamos projetos arquitetônicos personalizados que unem estética e funcionalidade para o seu espaço.",
+    },
     {
       icon: <Building2 className="h-10 w-10 text-primary" />,
       title: "Projetos Estruturais",
       description: "Desenvolvemos projetos estruturais seguros e eficientes, otimizados para cada tipo de construção.",
     },
     {
-      icon: <Wrench className="h-10 w-10 text-primary" />,
-      title: "Gerenciamento de Obras",
-      description: "Coordenamos todas as etapas da sua obra, garantindo prazos, custos e a mais alta qualidade.",
-    },
-    {
-      icon: <DraftingCompass className="h-10 w-10 text-primary" />,
-      title: "Consultoria Técnica",
-      description: "Oferecemos laudos, vistorias e consultoria especializada para garantir a conformidade e segurança do seu projeto.",
+      icon: <HomeIcon className="h-10 w-10 text-primary" />,
+      title: "Design de Interiores",
+      description: "Transformamos ambientes com soluções criativas de design de interiores, marcenaria e decoração.",
     },
   ];
 

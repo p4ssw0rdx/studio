@@ -1,71 +1,104 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Building2, DraftingCompass, Handshake, Search, ShieldCheck, Wrench } from "lucide-react";
+import { Building2, DraftingCompass, FileCheck2, Flame, Hammer, Home as HomeIcon, Landmark, Map, Ruler, Wrench } from "lucide-react";
 
 const services = [
   {
+    icon: DraftingCompass,
+    title: "Projetos Arquitetônicos",
+    description: "Criamos projetos arquitetônicos personalizados que unem estética e funcionalidade, transformando suas ideias em espaços únicos e bem planejados, otimizados para o seu bem-estar.",
+    details: [
+      "Elaboração de plantas baixas, cortes e fachadas.",
+      "Criação de modelos 3D e renderizações realistas.",
+      "Compatibilização com projetos estruturais e complementares.",
+      "Consultoria para escolha de materiais e acabamentos."
+    ]
+  },
+  {
     icon: Building2,
     title: "Projetos Estruturais",
-    description: "Desenvolvemos projetos de estruturas em concreto armado, protendido, estruturas metálicas e de madeira. Nossas soluções são otimizadas para segurança, economia e exequibilidade, utilizando softwares de última geração para modelagem e análise (BIM).",
+    description: "Desenvolvemos projetos de estruturas em concreto armado, metálicas e de madeira. Nossas soluções são otimizadas para segurança, economia e exequibilidade, utilizando softwares de última geração.",
     details: [
       "Cálculo e dimensionamento de vigas, pilares e lajes.",
-      "Análise de estabilidade global.",
+      "Análise de estabilidade global da estrutura.",
       "Projetos de fundações superficiais e profundas.",
       "Compatibilização com projetos de arquitetura e instalações."
     ]
   },
   {
+    icon: Ruler,
+    title: "Projetos de Marcenaria",
+    description: "Elaboramos projetos de marcenaria sob medida que otimizam espaços e agregam valor estético aos ambientes. Criamos soluções inteligentes e personalizadas para móveis e acabamentos.",
+    details: [
+      "Design de móveis planejados para cozinhas, quartos e salas.",
+      "Detalhamento técnico para execução em marcenaria.",
+      "Seleção de materiais, ferragens e acabamentos.",
+      "Projetos de painéis, portas especiais e elementos decorativos."
+    ]
+  },
+  {
+    icon: HomeIcon,
+    title: "Interiores",
+    description: "Transformamos ambientes com projetos de interiores que refletem sua personalidade e estilo de vida. Cuidamos de cada detalhe, desde o layout até a iluminação e decoração, para criar espaços acolhedores.",
+    details: [
+      "Planejamento de layout e distribuição do mobiliário.",
+      "Projetos de iluminação, gesso e forro.",
+      "Especificação de revestimentos, cores e texturas.",
+      "Consultoria para decoração e escolha de objetos."
+    ]
+  },
+  {
+    icon: FileCheck2,
+    title: "Regularizações",
+    description: "Cuidamos de todo o processo de regularização de imóveis junto aos órgãos competentes. Garantimos que sua construção esteja de acordo com a legislação, evitando multas e problemas futuros.",
+    details: [
+      "Aprovação de projetos na prefeitura.",
+      "Obtenção de alvarás de construção e Habite-se.",
+      "Regularização de obras já executadas (residenciais e comerciais).",
+      "Unificação e desmembramento de lotes."
+    ]
+  },
+  {
+    icon: Hammer,
+    title: "Reforma",
+    description: "Planejamos e gerenciamos reformas completas ou parciais, com foco na qualidade, prazo e orçamento. Modernizamos seu imóvel, otimizando espaços e valorizando seu patrimônio.",
+    details: [
+      "Planejamento e cronograma da obra.",
+      "Gerenciamento de equipes e fornecedores.",
+      "Reformas de fachadas, áreas internas e externas.",
+      "Acompanhamento técnico para garantir a qualidade dos serviços."
+    ]
+  },
+  {
+    icon: Flame,
+    title: "Prevenção e Combate a Incêndio",
+    description: "Desenvolvemos projetos de prevenção e combate a incêndio (PPCI) para garantir a segurança de edificações comerciais e residenciais, seguindo rigorosamente as normas técnicas e legislações.",
+    details: [
+      "Elaboração de projetos de hidrantes e sprinklers.",
+      "Dimensionamento de saídas de emergência e sinalização.",
+      "Laudos técnicos para obtenção ou renovação do AVCB.",
+      "Consultoria completa para adequação às normas de segurança."
+    ]
+  },
+   {
+    icon: Landmark,
+    title: "Topografia",
+    description: "Realizamos levantamentos topográficos precisos para projetos de engenharia e arquitetura. Nossos serviços são essenciais para o planejamento, execução e regularização de qualquer empreendimento.",
+    details: [
+      "Levantamento planialtimétrico cadastral.",
+      "Georreferenciamento de imóveis rurais e urbanos.",
+      "Locação e acompanhamento de obras.",
+      "Demarcação de lotes e divisas."
+    ]
+  },
+  {
     icon: Wrench,
-    title: "Gerenciamento e Execução de Obras",
-    description: "Assumimos a responsabilidade total pela sua obra, desde o planejamento até a entrega das chaves. Coordenamos equipes, fornecedores e cronogramas para garantir que o projeto seja concluído no prazo, dentro do orçamento e com a máxima qualidade.",
+    title: "Serviços de Engenharia em Geral",
+    description: "Oferecemos uma gama completa de serviços de engenharia para atender às suas necessidades, desde laudos técnicos e perícias até o gerenciamento completo de obras, com foco na eficiência e qualidade.",
     details: [
-      "Elaboração de cronograma físico-financeiro.",
-      "Contratação e gestão de mão de obra e fornecedores.",
-      "Controle de qualidade de materiais e serviços.",
-      "Relatórios periódicos de avanço da obra."
-    ]
-  },
-  {
-    icon: ShieldCheck,
-    title: "Laudos e Perícias Técnicas",
-    description: "Realizamos vistorias e elaboramos laudos técnicos detalhados para as mais diversas finalidades, como patologias construtivas, avaliação de imóveis, inspeções prediais e perícias judiciais, sempre com imparcialidade e rigor técnico.",
-    details: [
-      "Laudos de patologias (infiltrações, fissuras, etc.).",
-      "Inspeção predial para condomínios (NBR 16747).",
-      "Laudos de avaliação de imóveis.",
-      "Assistência técnica em processos judiciais."
-    ]
-  },
-  {
-    icon: Search,
-    title: "Estudos de Viabilidade",
-    description: "Analisamos a viabilidade técnica e econômica do seu empreendimento antes do investimento inicial. Nossos estudos ajudam a mitigar riscos e a tomar decisões mais assertivas, baseadas em dados concretos sobre custos, legislação e potencial de mercado.",
-    details: [
-      "Análise da legislação urbanística e ambiental.",
-      "Estimativa de custos de construção.",
-      "Estudo preliminar de arquitetura e engenharia.",
-      "Análise de retorno sobre o investimento (ROI)."
-    ]
-  },
-  {
-    icon: Handshake,
-    title: "Consultoria em Engenharia",
-    description: "Oferecemos nosso conhecimento especializado para auxiliar clientes e outras empresas em desafios específicos. Nossa consultoria abrange desde a escolha de materiais e tecnologias até a otimização de processos construtivos e gestão de projetos.",
-    details: [
-      "Seleção de tecnologias e materiais construtivos.",
-      "Otimização de projetos para redução de custos.",
-      "Implementação de metodologia BIM.",
-      "Consultoria em sustentabilidade e certificações (LEED, AQUA)."
-    ]
-  },
-  {
-    icon: DraftingCompass,
-    title: "Projetos Complementares",
-    description: "Além da estrutura, desenvolvemos e compatibilizamos os projetos complementares essenciais para qualquer edificação, garantindo a integração e o funcionamento perfeito de todos os sistemas.",
-     details: [
-      "Projetos de instalações elétricas e hidrossanitárias.",
-      "Projetos de prevenção e combate a incêndio (PPCI).",
-      "Projetos de climatização e ventilação.",
-      "Projetos de telecomunicações e automação predial."
+      "Laudos de patologias construtivas (infiltrações, fissuras).",
+      "Inspeções prediais e vistorias técnicas.",
+      "Gerenciamento e acompanhamento de obras.",
+      "Consultoria técnica especializada para diversas finalidades."
     ]
   }
 ]
@@ -77,9 +110,9 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="text-primary font-semibold">Soluções</p>
-            <h1 className="font-headline text-4xl md:text-5xl font-bold mt-2">Serviços de Engenharia de Ponta</h1>
+            <h1 className="font-headline text-4xl md:text-5xl font-bold mt-2">Nossos Serviços</h1>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-              Oferecemos um portfólio completo de serviços para atender a todas as fases do seu projeto, da concepção à conclusão.
+              Oferecemos um portfólio completo de serviços para atender a todas as fases do seu projeto, da concepção à conclusão, com excelência e inovação.
             </p>
           </div>
         </div>

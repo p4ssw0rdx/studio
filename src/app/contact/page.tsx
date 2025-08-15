@@ -159,8 +159,15 @@ export default function ContactPage() {
                     <div className="flex items-start gap-4">
                      <div className="p-3 bg-primary/10 rounded-full mt-1"><Phone className="h-6 w-6 text-primary"/></div>
                      <div>
-                       <h4 className="font-semibold text-foreground">Telefone</h4>
-                       <p>(11) 1234-5678</p>
+                       <h4 className="font-semibold text-foreground">Vinicius Duarte</h4>
+                       <p>(35) 99230-7111</p>
+                     </div>
+                   </div>
+                    <div className="flex items-start gap-4">
+                     <div className="p-3 bg-primary/10 rounded-full mt-1"><Phone className="h-6 w-6 text-primary"/></div>
+                     <div>
+                       <h4 className="font-semibold text-foreground">Gabriel Vilela</h4>
+                       <p>(35) 99874-3488</p>
                      </div>
                    </div>
                     <div className="flex items-start gap-4">

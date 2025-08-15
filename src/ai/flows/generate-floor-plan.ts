@@ -63,20 +63,14 @@ const generateFloorPlanFlow = ai.defineFlow(
     const [imageResult, descriptionResult] = await Promise.all([
       ai.generate({
         model: 'googleai/gemini-2.0-flash-preview-image-generation',
-        prompt: [
-          {text: imageSystemPrompt},
-          {text: `Gere a imagem da planta baixa para: ${userPrompt}`},
-        ],
+        prompt: `${imageSystemPrompt}\n\nGere a imagem da planta baixa para: ${userPrompt}`,
         config: {
           responseModalities: ['IMAGE'],
         },
       }),
       ai.generate({
         model: 'googleai/gemini-2.0-flash',
-        prompt: [
-          {text: descriptionSystemPrompt},
-          {text: `Gere a descrição para: ${userPrompt}`},
-        ]
+        prompt: `${descriptionSystemPrompt}\n\nGere a descrição para: ${userPrompt}`,
       })
     ]);
     

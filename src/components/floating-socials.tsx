@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 export function FloatingSocials() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -15,8 +15,9 @@ export function FloatingSocials() {
       const footer = document.querySelector("footer");
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
-        // Show the icons if the top of the footer is not yet in the viewport
-        setIsVisible(window.innerHeight - footerRect.top < 70);
+        // Hide the icons if the top of the footer is near or above the bottom of the viewport
+        const buffer = 80; // an 80px buffer zone
+        setIsVisible(footerRect.top > window.innerHeight - buffer);
       }
     };
 
@@ -31,8 +32,8 @@ export function FloatingSocials() {
   return (
     <div
       className={cn(
-        "fixed bottom-8 right-8 z-40 flex flex-col items-center gap-3 transition-opacity duration-300",
-        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        "fixed bottom-[9.5rem] right-8 z-40 flex flex-col items-center gap-3 transition-all duration-500 md:bottom-24",
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"
       )}
     >
       <Link 

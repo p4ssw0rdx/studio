@@ -9,7 +9,7 @@ export function BackToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+    if (window.scrollY > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -24,7 +24,7 @@ export function BackToTopButton() {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
@@ -37,7 +37,7 @@ export function BackToTopButton() {
       onClick={scrollToTop}
       className={cn(
         "fixed bottom-8 right-8 z-50 rounded-full shadow-lg transition-all duration-300",
-        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"
       )}
       aria-label="Voltar ao topo"
     >

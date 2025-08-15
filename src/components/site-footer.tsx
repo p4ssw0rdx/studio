@@ -1,5 +1,6 @@
-import { Building2, Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from "lucide-react"
 import Link from "next/link"
+import { JvgLogo } from "./jvg-logo";
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Building2 className="h-8 w-8 text-primary" />
+              <JvgLogo className="h-8 w-8 text-primary" />
               <span className="text-xl font-bold font-headline">JVG Engenharia</span>
             </Link>
             <p className="text-sm text-muted-foreground">
@@ -35,7 +36,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>contato@engeninova.com.br</span>
+                <span>contato@jvgengenharia.com.br</span>
               </li>
             </ul>
           </div>

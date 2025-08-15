@@ -7,14 +7,14 @@ const teamMembers = [
   {
     name: "Vinicius Duarte",
     role: "Engenheiro Civil e Ambiental",
-    avatar: "/images/0.jpeg",
+    avatar: "https://placehold.co/256x256.png",
     bio: "Tenho 37 anos e sou engenheiro civil e ambiental, com pós-graduação em Estruturas de Concreto Armado e Segurança do Trabalho. Minha trajetória na engenharia começou em 2008, quando iniciei meus trabalhos com um escritório em Pratápolis. Desde então, tenho me aprofundado cada vez mais na área de estruturas de concreto, unindo teoria e prática para entregar soluções eficientes, seguras e econômicas para o cliente. Atualmente, desenvolvo projetos arquitetônicos, projetos estruturais e projetos complementares , incluindo detalhamentos como planta de formas, vigas, pilares e lajes, além de oferecer consultorias especializadas em engenharia estrutural. 🏗️🏢",
     hint: "male portrait"
   },
   {
     name: "Gabriel Vilela",
     role: "Engenheiro Civil e Pós-graduado em Arquitetura",
-    avatar: "/images/1.jpeg",
+    avatar: "https://placehold.co/256x256.png",
     bio: "Tenho 27 anos, sou engenheiro civil e pós-graduado em Arquitetura e Urbanismo, e minha paixão por projetos surgiu durante meus estágios na área. Desde então, venho me especializando em Arquitetura e Interiores, sempre buscando aprimoramento por meio de cursos e experiências práticas no dia a dia. Atualmente, desenvolvo projetos arquitetônicos, projetos de interiores, detalhamento e projeto técnico, Renderizações de imagens e consultorias para transformar ideias em realidade! 🏡 📿",
     hint: "male portrait"
   }

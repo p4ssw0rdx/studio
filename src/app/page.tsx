@@ -46,7 +46,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative h-[60vh] min-h-[400px] w-full bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(https://placehold.co/1920x1080.png)'}} data-ai-hint="engineering blueprint">
+      <section className="relative h-[60vh] min-h-[400px] w-full bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(https://placehold.co/1920x1080.png)'}} data-ai-hint="architecture building">
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white p-4">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg">

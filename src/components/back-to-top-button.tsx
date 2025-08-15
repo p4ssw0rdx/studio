@@ -10,15 +10,12 @@ export function BackToTopButton() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      // Show button if scrolled more than 300px
+      setIsVisible(window.scrollY > 300);
     };
 
     window.addEventListener("scroll", toggleVisibility, { passive: true });
-    toggleVisibility(); // Check on mount
+    toggleVisibility(); // Initial check in case page is already scrolled
 
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
@@ -32,17 +29,13 @@ export function BackToTopButton() {
     });
   };
 
-  if (!isVisible) {
-    return null;
-  }
-
   return (
     <Button
       size="icon"
       onClick={scrollToTop}
       className={cn(
-        "fixed bottom-8 right-8 z-50 rounded-full shadow-lg transition-opacity duration-300",
-        isVisible ? "opacity-100" : "opacity-0"
+        "fixed bottom-8 right-8 z-50 rounded-full shadow-lg transition-all duration-300",
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"
       )}
       aria-label="Voltar ao topo"
     >

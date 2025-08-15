@@ -7,19 +7,24 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 export function FloatingSocials() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     const handleScroll = () => {
       const footer = document.querySelector("footer");
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
-        // Hide the icons if the top of the footer is near or above the bottom of the viewport
-        const buffer = 80; // an 80px buffer zone
-        setIsVisible(footerRect.top > window.innerHeight - buffer);
-      } else {
-        setIsVisible(true); // Show if footer is not found for any reason
+        // Check if the top of the footer is above the bottom of the viewport
+        const buffer = 80; // 80px buffer zone
+        setIsFooterVisible(footerRect.top < window.innerHeight + buffer);
       }
     };
 
@@ -29,13 +34,17 @@ export function FloatingSocials() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [pathname]); // Re-run when page changes
+  }, [pathname, isMounted]);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div
       className={cn(
-        "fixed bottom-[9.5rem] right-8 z-40 flex flex-col items-center gap-3 transition-opacity duration-300 md:bottom-24",
-        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        "fixed bottom-[9.5rem] right-8 z-40 flex flex-col items-center gap-3 transition-all duration-300 md:bottom-24",
+        isFooterVisible ? "opacity-0" : "opacity-100"
       )}
     >
       <Link 

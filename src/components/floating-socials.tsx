@@ -4,32 +4,35 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Facebook, Instagram } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export function FloatingSocials() {
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
-
-  const handleScroll = () => {
-    const footer = document.querySelector("footer");
-    if (footer) {
-      const footerRect = footer.getBoundingClientRect();
-      const isVisible = footerRect.top < window.innerHeight;
-      setIsFooterVisible(isVisible);
-    }
-  };
+  const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); 
+    const handleScroll = () => {
+      const footer = document.querySelector("footer");
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        // Show the icons if the top of the footer is not yet in the viewport
+        setIsVisible(window.innerHeight - footerRect.top < 70);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]); // Re-run when page changes
 
   return (
     <div
       className={cn(
-        "fixed bottom-8 right-8 z-50 flex flex-col gap-3 transition-transform duration-300",
-        isFooterVisible ? "translate-x-[-60px]" : "translate-x-0"
+        "fixed bottom-8 right-8 z-40 flex flex-col items-center gap-3 transition-opacity duration-300",
+        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
     >
       <Link 
@@ -37,7 +40,7 @@ export function FloatingSocials() {
         target="_blank" 
         rel="noopener noreferrer" 
         aria-label="Facebook da JVG Engenharia"
-        className="h-10 w-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors"
+        className="h-10 w-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-all hover:scale-110"
       >
         <Facebook className="h-5 w-5" />
       </Link>
@@ -46,7 +49,7 @@ export function FloatingSocials() {
         target="_blank" 
         rel="noopener noreferrer" 
         aria-label="Instagram da JVG Engenharia"
-        className="h-10 w-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors"
+        className="h-10 w-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-all hover:scale-110"
       >
         <Instagram className="h-5 w-5" />
       </Link>

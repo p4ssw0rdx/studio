@@ -33,22 +33,22 @@ export async function generateFloorPlan(
   return generateFloorPlanFlow(input);
 }
 
-const systemPrompt = `Você é um arquiteto e engenheiro especialista em projetar plantas baixas residenciais. O usuário fornecerá os requisitos e você deve gerar uma descrição detalhada e uma imagem da planta baixa.
-
+const imageSystemPrompt = `Você é um arquiteto e engenheiro especialista em projetar plantas baixas residenciais. O usuário fornecerá os requisitos e você deve gerar uma imagem da planta baixa.
 Instruções para a imagem:
 - Crie uma imagem de planta baixa 2D, vista de cima.
 - O fundo deve ser branco.
 - As paredes devem ser pretas e espessas.
 - Inclua rótulos claros para cada cômodo (e.g., 'Quarto 1', 'Cozinha', 'Banheiro').
 - Mostre a disposição dos móveis principais (cama, sofá, mesa de jantar, etc.).
-- Inclua as dimensões gerais da propriedade.
+- Inclua as dimensões gerais da propriedade.`;
 
+const descriptionSystemPrompt = `Você é um arquiteto e engenheiro especialista em projetar plantas baixas residenciais. Com base nos requisitos do usuário, gere uma descrição detalhada e inspiradora para a planta baixa.
 Instruções para a descrição:
-- Gere a saida de 'description' no formato de um texto.
 - Descreva a distribuição dos cômodos, o fluxo entre eles e como o design atende aos requisitos do usuário.
 - Destaque as características e benefícios do projeto.
 - Seja profissional e inspirador.
-`;
+- Responda em português do Brasil.`;
+
 
 const generateFloorPlanFlow = ai.defineFlow(
   {
@@ -59,28 +59,37 @@ const generateFloorPlanFlow = ai.defineFlow(
   async (input) => {
     const userPrompt = `Tipo de Projeto: ${input.projectType}, Área: ${input.area}m², Quartos: ${input.bedrooms}, Banheiros: ${input.bathrooms}, Estilo: ${input.style}, Detalhes Adicionais: ${input.otherDetails}`;
 
-    const {media, output} = await ai.generate({
-      model: 'googleai/gemini-2.0-flash-preview-image-generation',
-      prompt: [
-        {text: systemPrompt},
-        {text: `Gere uma planta baixa para: ${userPrompt}`},
-      ],
-      config: {
-        responseModalities: ['TEXT', 'IMAGE'],
-      },
-       output: {
-        schema: z.object({
-            description: z.string()
-        })
-      }
-    });
+    // Generate Image and Description in parallel
+    const [imageResult, descriptionResult] = await Promise.all([
+      ai.generate({
+        model: 'googleai/gemini-2.0-flash-preview-image-generation',
+        prompt: [
+          {text: imageSystemPrompt},
+          {text: `Gere a imagem da planta baixa para: ${userPrompt}`},
+        ],
+        config: {
+          responseModalities: ['IMAGE'],
+        },
+      }),
+      ai.generate({
+        model: 'googleai/gemini-2.0-flash',
+        prompt: [
+          {text: descriptionSystemPrompt},
+          {text: `Gere a descrição para: ${userPrompt}`},
+        ]
+      })
+    ]);
+    
+    const { media } = imageResult;
+    const { text } = descriptionResult;
 
-    if (!media || !output?.description) {
+
+    if (!media?.url || !text) {
       throw new Error('Falha ao gerar a planta baixa. A resposta do modelo foi inválida.');
     }
 
     return {
-      description: output.description,
+      description: text,
       imageDataUri: media.url,
     };
   }

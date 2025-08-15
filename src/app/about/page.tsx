@@ -103,7 +103,7 @@ export default function AboutPage() {
                   <CardTitle className="font-headline text-2xl">{member.name}</CardTitle>
                   <p className="text-primary font-medium mt-1">{member.role}</p>
                   <CardContent className="p-0 mt-4">
-                    <p className="text-muted-foreground text-sm">{member.bio}</p>
+                    <p className="text-muted-foreground text-sm text-justify">{member.bio}</p>
                   </CardContent>
                 </div>
               </Card>

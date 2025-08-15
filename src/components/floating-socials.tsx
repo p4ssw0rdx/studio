@@ -22,14 +22,13 @@ export function FloatingSocials() {
       const footer = document.querySelector("footer");
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
-        // Check if the top of the footer is above the bottom of the viewport
-        const buffer = 80; // 80px buffer zone
+        const buffer = 80; 
         setIsFooterVisible(footerRect.top < window.innerHeight + buffer);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll(); 
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -44,7 +43,7 @@ export function FloatingSocials() {
     <div
       className={cn(
         "fixed bottom-[9.5rem] right-8 z-40 flex flex-col items-center gap-3 transition-all duration-300 md:bottom-24",
-        isFooterVisible ? "opacity-0" : "opacity-100"
+        isFooterVisible || pathname === '/login' || pathname === '/admin' ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
       <Link 

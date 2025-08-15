@@ -6,6 +6,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { cn } from '@/lib/utils';
 import { BackToTopButton } from '@/components/back-to-top-button';
 import { FloatingSocials } from '@/components/floating-socials';
+import { AuthProvider } from '@/context/auth-context';
 
 export const metadata: Metadata = {
   title: 'JVG Engenharia | Arquitetura & Interiores',
@@ -25,14 +26,16 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className={cn("min-h-screen bg-background font-body antialiased")}>
-        <div className="relative flex min-h-screen flex-col">
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </div>
-        <Toaster />
-        <FloatingSocials />
-        <BackToTopButton />
+        <AuthProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </div>
+          <Toaster />
+          <FloatingSocials />
+          <BackToTopButton />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,26 +1,34 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function BackToTopButton() {
+  const [isMounted, setIsMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     const toggleVisibility = () => {
-      // Show button if scrolled more than 300px
       setIsVisible(window.scrollY > 300);
     };
 
     window.addEventListener("scroll", toggleVisibility, { passive: true });
-    toggleVisibility(); // Initial check in case page is already scrolled
+    toggleVisibility();
 
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
     };
-  }, []);
+  }, [isMounted]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -28,6 +36,15 @@ export function BackToTopButton() {
       behavior: "smooth",
     });
   };
+
+  if (!isMounted) {
+    return null;
+  }
+
+  const hiddenRoutes = ['/login', '/admin'];
+  if (hiddenRoutes.includes(pathname)) {
+    return null;
+  }
 
   return (
     <Button

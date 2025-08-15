@@ -1,9 +1,10 @@
 "use client"
 
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { Menu, LogIn } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
+import { useAuth } from "@/context/auth-context"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -22,6 +23,7 @@ const navItems = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -44,7 +46,7 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <div className="flex flex-1 items-center justify-end">
+        <div className="flex flex-1 items-center justify-end gap-2">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" className="md:hidden">
@@ -74,9 +76,16 @@ export function SiteHeader() {
               </nav>
             </SheetContent>
           </Sheet>
-          <Button asChild className="hidden md:flex">
-             <Link href="/contact">Fale Conosco</Link>
-          </Button>
+          {user ? (
+            <Button asChild>
+              <Link href="/admin">Admin</Link>
+            </Button>
+          ) : (
+            <Button asChild variant="ghost" className="hidden md:flex">
+              <Link href="/login"><LogIn className="mr-2"/> Login</Link>
+            </Button>
+          )}
+
         </div>
       </div>
     </header>

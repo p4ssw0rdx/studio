@@ -44,6 +44,7 @@ Instruções para a imagem:
 - Inclua as dimensões gerais da propriedade.
 
 Instruções para a descrição:
+- Gere a saida de 'description' no formato de um texto.
 - Descreva a distribuição dos cômodos, o fluxo entre eles e como o design atende aos requisitos do usuário.
 - Destaque as características e benefícios do projeto.
 - Seja profissional e inspirador.

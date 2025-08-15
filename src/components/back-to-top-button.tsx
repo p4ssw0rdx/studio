@@ -8,13 +8,22 @@ import { cn } from "@/lib/utils";
 export function BackToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    toggleVisibility(); // Check on mount
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -23,21 +32,17 @@ export function BackToTopButton() {
     });
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", toggleVisibility);
-    };
-  }, []);
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <Button
       size="icon"
       onClick={scrollToTop}
       className={cn(
-        "fixed bottom-8 right-8 z-50 rounded-full shadow-lg transition-all duration-300",
-        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"
+        "fixed bottom-8 right-8 z-50 rounded-full shadow-lg transition-opacity duration-300",
+        isVisible ? "opacity-100" : "opacity-0"
       )}
       aria-label="Voltar ao topo"
     >

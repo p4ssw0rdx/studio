@@ -5,6 +5,7 @@ import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { cn } from '@/lib/utils';
 import { BackToTopButton } from '@/components/back-to-top-button';
+import { FloatingSocials } from '@/components/floating-socials';
 
 export const metadata: Metadata = {
   title: 'JVG Engenharia | Arquitetura & Interiores',
@@ -30,6 +31,7 @@ export default function RootLayout({
           <SiteFooter />
         </div>
         <Toaster />
+        <FloatingSocials />
         <BackToTopButton />
       </body>
     </html>

@@ -152,8 +152,8 @@ export default function ContactPage() {
                      <div className="p-3 bg-primary/10 rounded-full mt-1"><MapPin className="h-6 w-6 text-primary"/></div>
                      <div>
                        <h4 className="font-semibold text-foreground">Nosso Escritório</h4>
-                       <p>Av. Principal, 123 - Sala 45</p>
-                       <p>Centro, São Paulo - SP, 01000-000</p>
+                       <p>Rua Vasconcelos, nº 585, Centro</p>
+                       <p>Pratápolis, MG - CEP: 37970-000</p>
                      </div>
                    </div>
                     <div className="flex items-start gap-4">

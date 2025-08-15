@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone } from "lucide-react"
 import Link from "next/link"
 import { JvgLogo } from "./jvg-logo";
 
@@ -47,9 +47,7 @@ export function SiteFooter() {
           <div>
             <h3 className="font-headline text-lg font-semibold mb-4">Redes Sociais</h3>
             <div className="flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter /></Link>
               <Link href="https://www.facebook.com/jvg.engenharia/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Facebook /></Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin /></Link>
               <Link href="https://www.instagram.com/jvg.engenharia" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram /></Link>
             </div>
           </div>

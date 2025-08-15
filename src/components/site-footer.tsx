@@ -31,16 +31,22 @@ export function SiteFooter() {
             <h3 className="font-headline text-lg font-semibold mb-4">Contato</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" />
-                <span>(35) 99230-7111 (Vinicius)</span>
+                 <a href="https://wa.me/5535992307111" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                  <Phone className="h-4 w-4 text-primary" />
+                  <span>(35) 99230-7111 (Vinicius)</span>
+                </a>
               </li>
                <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" />
-                <span>(35) 99874-3488 (Gabriel)</span>
+                 <a href="https://wa.me/5535998743488" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                  <Phone className="h-4 w-4 text-primary" />
+                  <span>(35) 99874-3488 (Gabriel)</span>
+                </a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary" />
-                <span>contato@jvgengenharia.com.br</span>
+                 <a href="mailto:contato@jvgengenharia.com.br" className="flex items-center gap-2 hover:text-primary transition-colors">
+                  <Mail className="h-4 w-4 text-primary" />
+                  <span>contato@jvgengenharia.com.br</span>
+                 </a>
               </li>
             </ul>
           </div>

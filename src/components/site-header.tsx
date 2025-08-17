@@ -76,16 +76,11 @@ export function SiteHeader() {
               </nav>
             </SheetContent>
           </Sheet>
-          {user ? (
+          {user && (
             <Button asChild>
               <Link href="/admin">Admin</Link>
             </Button>
-          ) : (
-            <Button asChild variant="ghost" className="hidden md:flex">
-              <Link href="/login"><LogIn className="mr-2"/> Login</Link>
-            </Button>
           )}
-
         </div>
       </div>
     </header>

@@ -1,6 +1,8 @@
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Download } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const projects = [
   {
@@ -64,6 +66,13 @@ export default function ProjectsPage() {
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
               Explore uma seleção de projetos que demonstram nossa versatilidade, capacidade técnica e compromisso com resultados extraordinários.
             </p>
+            <Button asChild size="lg" className="mt-8">
+              {/* ATENÇÃO: Substitua "#" pelo link do seu PDF no Firebase Storage */}
+              <Link href="#" target="_blank" rel="noopener noreferrer">
+                <Download className="mr-2 h-5 w-5" />
+                Baixar Portfólio Completo em PDF
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

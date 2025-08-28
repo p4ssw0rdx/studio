@@ -10,8 +10,8 @@ import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   projectId: "jvg-engenharia",
   appId: "1:338805212036:web:3347de541598b180f493d1",
-  storageBucket: "jvg-engenharia.firebasestorage.app",
-  apiKey: "AIzaSyA5JcJ56h9XSky5KmuBDGw0-SO0v6zsjpg",
+  storageBucket: "jvg-engenharia.appspot.com",
+  apiKey: "AIzaSyBzRztzGWcT_MyxpsI6hgP8JKiCoiM1yic",
   authDomain: "jvg-engenharia.firebaseapp.com",
   measurementId: "",
   messagingSenderId: "338805212036"

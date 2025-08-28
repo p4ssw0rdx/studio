@@ -67,8 +67,7 @@ export default function ProjectsPage() {
               Explore uma seleção de projetos que demonstram nossa versatilidade, capacidade técnica e compromisso com resultados extraordinários.
             </p>
             <Button asChild size="lg" className="mt-8">
-              {/* ATENÇÃO: Substitua "#" pelo link do seu PDF no Firebase Storage */}
-              <Link href="#" target="_blank" rel="noopener noreferrer">
+              <Link href="https://firebasestorage.googleapis.com/v0/b/jvg-engenharia.appspot.com/o/portfolio.pdf?alt=media" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-5 w-5" />
                 Baixar Portfólio Completo em PDF
               </Link>
